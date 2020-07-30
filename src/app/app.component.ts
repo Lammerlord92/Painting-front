@@ -7,4 +7,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Painting-front';
+  notes = 'Following the course "Angular & Spring 5: Creando web app full stack (Angular 10+)-Udemy"';
 }
