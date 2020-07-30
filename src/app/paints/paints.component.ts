@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Paint} from './paint';
-import {PAINTS} from './paints.service';
+import {PaintService} from "./paint.service";
 
 @Component({
   selector: 'app-paints',
@@ -8,12 +8,12 @@ import {PAINTS} from './paints.service';
   styleUrls: ['./paints.component.css']
 })
 export class PaintsComponent implements OnInit {
-  paints:Paint[];
+  paints: Paint[];
 
-  constructor() { }
+  constructor(private paintService: PaintService) { }
 
   ngOnInit(): void {
-    this.paints=PAINTS;
+    this.paints = this.paintService.getPaints();
   }
 
 }
