@@ -1,0 +1,26 @@
+<div class="card border-primary mb-3">
+  <div class="card-header">Paints</div>
+  <div class="card-body text-primary">
+    <h5 class="card-title">Paint list</h5>
+    <table class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th>id</th>
+          <th>version</th>
+          <th>name</th>
+          <th>brand</th>
+          <th>code</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let paint of paints">
+          <td>{{paint.id}}</td>
+          <td>{{paint.version}}</td>
+          <td>{{paint.name}}</td>
+          <td>{{paint.brand}}</td>
+          <td>{{paint.code}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
