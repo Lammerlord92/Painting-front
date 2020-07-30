@@ -13,7 +13,9 @@ export class PaintsComponent implements OnInit {
   constructor(private paintService: PaintService) { }
 
   ngOnInit(): void {
-    this.paints = this.paintService.getPaints();
+    this.paintService.getPaints().subscribe(
+      (paints) => this.paints = paints
+    );
   }
 
 }
