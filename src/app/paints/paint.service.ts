@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import {Paint} from './paint';
 import { of, Observable } from 'rxjs';
@@ -6,7 +6,9 @@ import {map} from 'rxjs/operators';
 
 @Injectable()
 export class PaintService {
-  private urlEndPoint:string = 'http://localhost:8080/paints';
+  private urlEndPoint = 'http://localhost:8080/paints';
+  private httpHeaders = new HttpHeaders({'Content-Type': 'application/json'});
+
   constructor(private http: HttpClient) { }
 
   getPaints(): Observable<Paint[]>{
@@ -23,4 +25,8 @@ export class PaintService {
    );
    */
   }
+  create(paint:Paint):Observable<Paint[]>{
+    return this.http.post<Paint[]>(this.urlEndPoint,paint,{headers:this.httpHeaders} )
+  }
+
 }
