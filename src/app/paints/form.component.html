@@ -1,7 +1,7 @@
 <div class="card bg-dark text-white">
   <div class="card-header">{{ title }}</div>
   <div class="card-body">
-    <form (ngSubmit)="create()">
+    <form>
       <div class="form-group row">
         <label for="" class="col-form-label col-sm-2">Name</label>
         <div class="col-sm-6">
@@ -15,15 +15,22 @@
         </div>
       </div>
       <div class="form-group row">
+        <label for="" class="col-form-label col-sm-2">Range</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" [(ngModel)]="paint.range" name="range">
+        </div>
+      </div>
+      <div class="form-group row">
         <label for="" class="col-form-label col-sm-2">Code</label>
         <div class="col-sm-6">
           <input type="text" class="form-control" [(ngModel)]="paint.code" name="code">
         </div>
       </div>
       <div class="form-group row">
-        <label for="" class="col-form-label col-sm-2">Code</label>
+        <label for="" class="col-form-label col-sm-2">Actions</label>
         <div class="col-sm-6">
-          <button class="btn btn-primary" role="button">Save</button>
+          <button class="btn btn-primary" role="button" (click)="create()" *ngIf="!paint.id else elseBlock">Save</button>
+          <ng-template #elseBlock><button class="btn btn-primary" role="button" (click)="update()">Update</button></ng-template>
         </div>
       </div>
 

@@ -34,4 +34,8 @@ export class PaintService {
     return this.http.get<Paint>(`${this.urlEndPoint}/${id}`);
   }
 
+  update(paint:Paint):Observable<Paint>{
+    return this.http.put<Paint>(this.urlEndPoint,paint,{headers:this.httpHeaders} )
+  }
+
 }

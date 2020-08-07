@@ -3,5 +3,6 @@ export class Paint {
   version:number;
   name:string;
   brand:string;
+  range:string;
   code:string;
 }

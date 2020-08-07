@@ -40,4 +40,14 @@ export class FormComponent implements OnInit {
     )
   }
 
+  public update():void{
+    this.paintService.update(this.paint).subscribe(
+      response =>{
+        this.router.navigate(['/paints']);
+        swal.fire('Updated paint',`Paint ${this.paint.name} updated successfully`,'success');
+      }
+    )
+  }
+
+
 }
