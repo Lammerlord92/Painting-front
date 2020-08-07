@@ -13,6 +13,7 @@
           <th>name</th>
           <th>brand</th>
           <th>code</th>
+          <th>Edit</th>
         </tr>
       </thead>
       <tbody>
@@ -22,6 +23,9 @@
           <td>{{paint.name}}</td>
           <td>{{paint.brand}}</td>
           <td>{{paint.code}}</td>
+          <td>
+            <button type="button" name="button" [routerLink]="['form',paint.id]" class="btn btn-primary">Edit</button>
+          </td>
         </tr>
       </tbody>
     </table>

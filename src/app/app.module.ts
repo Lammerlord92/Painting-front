@@ -18,7 +18,8 @@ const routes: Routes = [
   { path: '', redirectTo: 'paints', pathMatch:'full' },
   { path: 'directivas', component: DirectivaComponent },
   { path: 'paints', component: PaintsComponent },
-  {path: 'paints/form', component: FormComponent}
+  {path: 'paints/form', component: FormComponent},
+  {path: 'paints/form/:id', component: FormComponent}
 ];
 
 

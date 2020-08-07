@@ -25,8 +25,13 @@ export class PaintService {
    );
    */
   }
+
   create(paint:Paint):Observable<Paint[]>{
     return this.http.post<Paint[]>(this.urlEndPoint,paint,{headers:this.httpHeaders} )
+  }
+
+  getPaint(id):Observable<Paint>{
+    return this.http.get<Paint>(`${this.urlEndPoint}/${id}`);
   }
 
 }
