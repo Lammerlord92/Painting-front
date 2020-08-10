@@ -26,7 +26,8 @@
           <td>{{paint.brandRange}}</td>
           <td>{{paint.code}}</td>
           <td>
-            <button type="button" name="button" [routerLink]="['form',paint.id]" class="btn btn-primary">Edit</button>
+            <button type="button" name="edit" [routerLink]="['form',paint.id]" class="btn btn-primary">Edit</button>
+            <button type="button" name="delete" (click)="delete(paint)" class="btn btn-danger">Delete</button>
           </td>
         </tr>
       </tbody>

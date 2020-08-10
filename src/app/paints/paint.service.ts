@@ -38,4 +38,7 @@ export class PaintService {
     return this.http.put<Paint>(this.urlEndPoint,paint,{headers:this.httpHeaders} )
   }
 
+  delete(id):Observable<Paint>{
+    return this.http.delete<Paint>(`${this.urlEndPoint}/${id}`,{headers:this.httpHeaders} );
+  }
 }

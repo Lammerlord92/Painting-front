@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Paint} from './paint';
 import {PaintService} from "./paint.service";
+import swal from 'sweetalert2';
 
 @Component({
   selector: 'app-paints',
@@ -18,4 +19,26 @@ export class PaintsComponent implements OnInit {
     );
   }
 
+  delete(paint:Paint):void{
+    swal.fire({
+      title: 'Are you sure?',
+      text: 'You are going to delete the paint ' + paint.name + '-' + paint.brand,
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Delete it!',
+      cancelButtonText: 'Cancel',
+    }).then((result) => {
+      if (result.value) {
+        this.paintService.delete(paint.id);
+        this.paints = this.paints.filter(p => p !== paint);
+        swal.fire(
+          'Deleted!',
+          'Paint ' + paint.name + '-' + paint.brand + ' deleted successfully',
+          'success'
+        );
+      }
+    })
+  }
 }
