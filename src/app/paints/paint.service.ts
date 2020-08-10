@@ -26,19 +26,20 @@ export class PaintService {
    */
   }
 
-  create(paint:Paint):Observable<Paint[]>{
-    return this.http.post<Paint[]>(this.urlEndPoint,paint,{headers:this.httpHeaders} )
+  create(paint:Paint): Observable<Paint[]>{
+    return this.http.post<Paint[]>(this.urlEndPoint, paint, {headers: this.httpHeaders} )
   }
 
-  getPaint(id):Observable<Paint>{
+  getPaint(id): Observable<Paint>{
     return this.http.get<Paint>(`${this.urlEndPoint}/${id}`);
   }
 
-  update(paint:Paint):Observable<Paint>{
-    return this.http.put<Paint>(this.urlEndPoint,paint,{headers:this.httpHeaders} )
+  update(paint:Paint): Observable<Paint>{
+    return this.http.put<Paint>(this.urlEndPoint, paint, {headers: this.httpHeaders} )
   }
 
-  delete(id):Observable<Paint>{
-    return this.http.delete<Paint>(`${this.urlEndPoint}/${id}`,{headers:this.httpHeaders} );
+  delete(id): Observable<Paint>{
+    console.log(id);
+    return this.http.delete<Paint>(`${this.urlEndPoint}/${id}`, {headers: this.httpHeaders} );
   }
 }

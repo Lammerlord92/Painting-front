@@ -31,12 +31,14 @@ export class PaintsComponent implements OnInit {
       cancelButtonText: 'Cancel',
     }).then((result) => {
       if (result.value) {
-        this.paintService.delete(paint.id);
-        this.paints = this.paints.filter(p => p !== paint);
-        swal.fire(
-          'Deleted!',
-          'Paint ' + paint.name + '-' + paint.brand + ' deleted successfully',
-          'success'
+        this.paintService.delete(paint.id).subscribe(
+          response => {
+          this.paints = this.paints.filter(p => p !== paint)
+          swal.fire(
+            'Deleted!',
+            'Paint ' + paint.name + '-' + paint.brand + ' deleted successfully',
+            'success'
+          )}
         );
       }
     })
