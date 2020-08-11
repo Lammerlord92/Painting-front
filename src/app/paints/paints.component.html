@@ -5,7 +5,10 @@
     <div class="my-2 text-left">
       <button class="btn btn-rounded btn-primary" type="button" [routerLink]="['/paints/form']">Create paint</button>
     </div>
-    <table class="table table-bordered table-striped" *ngIf="paints?.length>0">
+    <div *ngIf="paints?.length == 0" class="alert alert-info">
+      There's no paints in Database
+    </div>
+    <table class="table table-bordered table-striped" *ngIf="paints?.length > 0">
       <thead>
         <tr>
           <th>id</th>

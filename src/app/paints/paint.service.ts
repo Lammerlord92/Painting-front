@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import {Paint} from './paint';
 import { of, Observable } from 'rxjs';
-import {map} from 'rxjs/operators';
+import {map, catchError} from 'rxjs/operators';
 
 @Injectable()
 export class PaintService {
