@@ -22,29 +22,29 @@ export class FormComponent implements OnInit {
     this.loadPaint();
   }
 
-  loadPaint():void{
+  loadPaint(): void{
     this.activatedRoute.params.subscribe(params =>{
-      let id=params['id']
-      if(id){
+      let id = params['id'];
+      if (id){
         this.paintService.getPaint(id).subscribe( (paint) => this.paint = paint)
       }
     })
   }
 
-  public create():void{
+  public create(): void{
     this.paintService.create(this.paint).subscribe(
       response =>{
         this.router.navigate(['/paints']);
-        swal.fire('New paint',`Paint ${this.paint.name} created successfully`,'success');
+        swal.fire('New paint', `${response.message} (${response.paint.name})`, 'success');
       }
     )
   }
 
-  public update():void{
+  public update(): void{
     this.paintService.update(this.paint).subscribe(
       response =>{
         this.router.navigate(['/paints']);
-        swal.fire('Updated paint',`Paint ${this.paint.name} updated successfully`,'success');
+        swal.fire('Updated paint', `${response.message} (${response.paint.name})`, 'success');
       }
     )
   }
